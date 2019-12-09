@@ -33,30 +33,10 @@ public class TodosCan {
 	}
 
 	@Test
-	public void marksTodoAsDone() {
-		addTodo("Eat Food");
-		assertThat(isDone(todoAt(0)), is(false));
-
-		markTodoDone(todoAt(0));
-
-		assertThat(isDone(todoAt(0)), is(true));
-	}
-
-	@Test
 	public void deleteATodo() {
 		addTodo("Thing");
 
 		deleteTodo(todoAt(0));
-
-		assertThat(todoAt(0, true), is(nullValue()));
-	}
-
-	@Test
-	public void clearCompletedTodos() {
-		addTodo("Do Stuff");
-		markTodoDone(todoAt(0));
-
-		clearDoneTodos();
 
 		assertThat(todoAt(0, true), is(nullValue()));
 	}

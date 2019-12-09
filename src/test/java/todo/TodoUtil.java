@@ -19,19 +19,11 @@ public class TodoUtil {
 		return immediate ? anyImmediate(selector) : any(selector);
 	}
 
-	public static void markTodoDone(WebElement todo) {
-		any(todo, "input.check").click();
-	}
-
 	public static boolean isDone(WebElement todo) {
 		return anyImmediate(todo, ".todo.done") != null;
 	}
 
 	public static void deleteTodo(WebElement todo) {
 		new Actions(browser).moveToElement(todo).moveToElement(any(todo, ".todo-destroy")).click().build().perform();
-	}
-
-	public static void clearDoneTodos() {
-		any(".todo-clear").click();
 	}
 }
